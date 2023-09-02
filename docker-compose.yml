@@ -1,7 +1,9 @@
-version: '3.7'
+version: '3.8'
 services:
   mysql:
     image: mysql:8.0
+    cap_add:
+      - SYS_NICE  # CAP_SYS_NICE
     ports:
       - '3306:3306'
     environment:
@@ -17,3 +19,7 @@ services:
       - POSTGRES_DB=app
       - POSTGRES_USER=app
       - POSTGRES_PASSWORD=pass
+  node-app:
+    build: ./gate-simulator
+    ports:
+      - '9999:9999'
