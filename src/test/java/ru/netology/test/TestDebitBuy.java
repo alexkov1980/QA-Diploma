@@ -1,12 +1,13 @@
-package ru.netology;
+package ru.netology.test;
+
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import lombok.val;
 import org.junit.jupiter.api.*;
-import ru.netology.Data;
-import ru.netology.MainPage;
-import ru.netology.PaymentFormPageDebit;
-import ru.netology.SqlRequest;
+import ru.netology.data.Data;
+import ru.netology.data.SqlRequest;
+import ru.netology.page.MainPage;
+import ru.netology.page.PaymentFormPageDebit;
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -145,6 +146,7 @@ public class TestDebitBuy {
         paymentFormPageDebit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageDebit.waitForInvalidCharactersMessage();
     }
+
     @Test
     void shouldDenyPurchaseCardNumberWithChars() {
         paymentFormPageDebit = mainPage.payWithDebitCard()
@@ -157,6 +159,7 @@ public class TestDebitBuy {
         paymentFormPageDebit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageDebit.waitForInvalidCharactersMessage();
     }
+
     @Test
     void shouldDenyPurchaseWithEmptyMonthField() {
         paymentFormPageDebit = mainPage.payWithDebitCard()

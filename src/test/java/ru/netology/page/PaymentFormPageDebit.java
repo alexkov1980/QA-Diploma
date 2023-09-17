@@ -1,4 +1,5 @@
-package ru.netology;
+package ru.netology.page;
+
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.Keys;
@@ -59,22 +60,22 @@ public class PaymentFormPageDebit {
     }
 
     public void waitForMandatoryFieldMessage() {
-        mandatoryFieldMessage.shouldBe(Condition.visible, Duration.ofSeconds(11));
+        mandatoryFieldMessage.shouldBe(Condition.visible, Duration.ofSeconds(5));
     }
 
     public void waitForWrongFormatMessage() {
-        wrongFormatMessage.shouldBe(Condition.visible, Duration.ofSeconds(11));
+        wrongFormatMessage.shouldBe(Condition.visible, Duration.ofSeconds(5));
     }
 
     public void waitForInvalidCharactersMessage() {
-        invalidCharactersMessage.shouldBe(Condition.visible, Duration.ofSeconds(11));
+        invalidCharactersMessage.shouldBe(Condition.visible, Duration.ofSeconds(5));
     }
 
     public void waitForWrongCardExpirationMessage() {
-        wrongCardExpirationMessage.shouldBe(Condition.visible, Duration.ofSeconds(11));
+        wrongCardExpirationMessage.shouldBe(Condition.visible, Duration.ofSeconds(5));
     }
 
     public void waitForCardExpiredMessage() {
-        cardExpiredMessage.shouldBe(Condition.visible, Duration.ofSeconds(11));
+        cardExpiredMessage.shouldBe(Condition.visible, Duration.ofSeconds(5));
     }
 }

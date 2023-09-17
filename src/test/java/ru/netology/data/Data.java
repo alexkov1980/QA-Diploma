@@ -1,9 +1,10 @@
-        package ru.netology;
-        import com.github.javafaker.Faker;
+package ru.netology.data;
 
-        import java.time.LocalDate;
-        import java.time.format.DateTimeFormatter;
-        import java.util.Locale;
+import com.github.javafaker.Faker;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class Data {
     private static Faker fakerEn = new Faker(new Locale("en"));
@@ -47,6 +48,7 @@ public class Data {
     public static String getCardNumberWithText() {
         return "раз два";
     }
+
     public static String getCardNumberWithChars() {
         return "!?";
     }
@@ -77,8 +79,8 @@ public class Data {
     }
 
     public static String getValidYear() {
-        String validYear = LocalDate.now().format(DateTimeFormatter.ofPattern("yy"));
-        return validYear;
+        String alwaysValidYear = LocalDate.now().plusYears(2).format(DateTimeFormatter.ofPattern("yy"));
+        return alwaysValidYear;
     }
 
     public static String getEmptyYear() {
@@ -86,7 +88,8 @@ public class Data {
     }
 
     public static String getPastYear() {
-        return "13";
+        String pastYear = LocalDate.now().minusYears(1).format(DateTimeFormatter.ofPattern("yy"));
+        return pastYear;
     }
 
     public static String getInvalidFormatYear() {
@@ -113,7 +116,7 @@ public class Data {
         return "ivan ivanov";
     }
 
-     public static String getRedundantDataOwner() {
+    public static String getRedundantDataOwner() {
         return "Ivanov Ivan Ivanovich";
     }
 
